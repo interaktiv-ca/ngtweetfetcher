@@ -1,0 +1,82 @@
+
+.tweet-list {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.tweet-item {
+    list-style-type: none;
+    list-style: none;
+    border-bottom: 1px solid #dedede;
+    margin: 5px;
+    padding: 12px 2px 2px 58px;
+    -webkit-transition: all .8s;
+    transition: all .8s;
+}
+
+.tweet-content{
+    position:relative;
+}
+
+.tweet-header {
+    position: relative;
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.tweet-header .tweet-avatar {
+    position: absolute;
+    top: 0px;
+    left: -57px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+
+}
+
+.tweet-header span {
+    padding-right: 5px;
+}
+
+.tweetTimePosted {
+    float: right;
+}
+
+.tweet-text {
+
+    width: 100%;
+
+}
+
+.tweet-interact {
+
+
+   display: inline;
+    float:right;
+}
+
+
+.tweet-interact a {
+    display: block;
+    font-size: 8px;
+}
+
+.tweet-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.Emoji--forText {
+    width: 1.25em;
+    height: 1.25em;
+    padding: 0 .05em 0 .1em;
+    vertical-align: -0.2em;
+}
+
+
+
+
+
+
