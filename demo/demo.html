@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="myApp">
+<html lang="en-us">
 <head>
     <title>ngTweetFetcher Demo</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="UTF-8">
 
-    <!-- load bootstrap and fontawesome via CDN -->
+    <!-- load bootstrap via CDN -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/tweets.css" />
-    <link rel="stylesheet" href="css/style.css"/>
-    <style>
-        html, body, input, select, textarea
-        {
-            font-size: 1.05em;
-        }
-    </style>
+    <link rel="stylesheet" href="css/tweets.css">
+
+
 
     <!-- load angular via CDN -->
     <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
@@ -35,8 +30,9 @@
     </nav>
 </header>
 
-<div class="container">
-    <tweet-timeline is-ticker="true" interval="2000" show-re-tweets="true" max-tweets="3" twitter-id="695454754348994560"></tweet-timeline>
+<div ng-app="myApp" class="container">
+
+    <tweet-timeline is-ticker="false" interval="2000" show-re-tweets="true" max-tweets="5" twitter-id="425082944147824640"></tweet-timeline>
 </div>
 
 </body>

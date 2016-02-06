@@ -1,4 +1,13 @@
 
+p,a {
+    font-size: 9pt;
+    color: #3d3d3d;
+}
+
+a, a:visited {
+    color:#427fed;
+}
+
 .tweet-list {
     margin: 0px;
     padding: 0px;
@@ -10,7 +19,7 @@
     list-style: none;
     border-bottom: 1px solid #dedede;
     margin: 5px;
-    padding: 12px 2px 2px 58px;
+    padding: 5px 2px 5px 58px;
     -webkit-transition: all .8s;
     transition: all .8s;
 }
@@ -28,7 +37,7 @@
 
 .tweet-header .tweet-avatar {
     position: absolute;
-    top: 0px;
+    top: 5px;
     left: -57px;
     background: rgb(255, 255, 255);
     border-radius: 4px;
@@ -46,13 +55,14 @@
 .tweet-text {
 
     width: 100%;
+    margin-bottom: 0px;
 
 }
 
 .tweet-interact {
 
 
-   display: inline;
+    display: inline;
     float:right;
 }
 
@@ -73,6 +83,12 @@
     height: 1.25em;
     padding: 0 .05em 0 .1em;
     vertical-align: -0.2em;
+}
+
+a.tweet-expand, a:visited.tweet-expand{
+    color: grey;
+    text-decoration: none;
+    margin: 0;
 }
 
 

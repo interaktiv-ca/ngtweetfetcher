@@ -7,12 +7,12 @@ angular.module('ng.tweetfetcher').run(['$templateCache', function($templateCache
     '            <div class="tweet-avatar">\n' +
     '                <a ng-href="{{tweet.authorVO.profileURL}}"\n' +
     '                   data-scribe="element:user_link" target="_blank">\n' +
-    '                    <img class="tweet-img" alt="" data-scribe="element:avatar" ng-src="{{tweet.authorVO.imageURL}}">\n' +
+    '                    <img class="tweet-img" alt="" ng-src="{{tweet.authorVO.imageURL}}">\n' +
     '                </a>\n' +
     '            </div>\n' +
     '            <span>\n' +
-    '                <span><a ng-href="{{tweet.authorVO.profileURL}}" data-scribe="element:name">{{tweet.authorVO.profileName}}</a></span>\n' +
-    '                <span><a ng-href="{{tweet.authorVO.profileURL}}" data-scribe="element:screen_name">{{tweet.authorVO.userName}}</a></span>\n' +
+    '                <span><a ng-href="{{tweet.authorVO.profileURL}}">{{tweet.authorVO.profileName}}</a></span>\n' +
+    '                <span><a ng-href="{{tweet.authorVO.profileURL}}">{{tweet.authorVO.userName}}</a></span>\n' +
     '            </span>\n' +
     '            <span class="tweetTimePosted"><a ng-href="{{tweet.url}}">{{ tweet.dateVO.dateHtml }}</a></span>\n' +
     '        </div>\n' +
