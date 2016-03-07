@@ -71,16 +71,17 @@ function tweetFactoryFunc($document, $http, $log, $q, $window) {
 
     function parseToJson(data) {
 
+        tweets = [];
         var div = document.createElement('div');
         div.innerHTML = data.body;
-        var tweetElements = div.getElementsByClassName('tweet');
+        var tweetElements = div.getElementsByClassName('timeline-TweetList-tweet');
+
         var displayed = (tweetElements.length > tf.maxTweets && tf.maxTweets) ? tf.maxTweets : tweetElements.length;
 
         var x = 0;
         while (x < displayed) {
 
-
-            var isReeTweet = (tweetElements[x].getElementsByClassName('retweet-credit').length > 0) ? true : false;
+            var isReeTweet = (tweetElements[x].getElementsByClassName('timeline-Tweet-retweetCredit').length > 0) ? true : false;
 
             if (isReeTweet && !tf.showReTweets) {
                 if (displayed < tweetElements.length) {
@@ -90,17 +91,16 @@ function tweetFactoryFunc($document, $http, $log, $q, $window) {
                 continue;
             }
 
-            var tweetElement = (tweetElements[x].getElementsByClassName('e-entry-title')[0]);
-            var dateElement = (tweetElements[x].getElementsByClassName('dt-updated')[0]);
-
-            stripTagsFromInnerText(dateElement,'abbr');
-            var authorElement = (tweetElements[x].getElementsByClassName('p-author')[0]);
-            var id = tweetElements[x].getAttribute('data-tweet-id');
-            var tweetUrl = tweetElements[x].getElementsByClassName('permalink')[0].href;
+            var tweetElement = (tweetElements[x].getElementsByClassName('timeline-Tweet')[0]);
+            var tweetText = tweetElement.getElementsByClassName('timeline-Tweet-text')[0];
+            var dateElement = tweetElement.getElementsByClassName('dt-updated')[0];
             var dateVO = new tweetDateVO(dateElement.innerText);
+            var authorElement = tweetElement.getElementsByClassName('timeline-Tweet-author')[0];
             var authorVO = getAuthorVO(authorElement);
-
-            tweets.push(new tweetVO(id, tweetUrl, tweetElement.innerHTML, dateVO, authorVO));
+            /*remove for now*/
+            /*var id = tweetElements[x].getAttribute('data-tweet-id');*/
+            var tweetUrl = tweetElement.getElementsByClassName('timeline-Tweet-timestamp')[0].href;
+            tweets.push(new tweetVO('', tweetUrl, tweetText.innerHTML, dateVO, authorVO));
 
             x++;
         }
@@ -110,8 +110,8 @@ function tweetFactoryFunc($document, $http, $log, $q, $window) {
 
     function getAuthorVO(element) {
 
-        var profileName = (element.getElementsByClassName("p-name")[0]).innerText;
-        var userName = (element.getElementsByClassName("p-nickname")[0]).innerText;
+        var profileName = (element.getElementsByClassName("TweetAuthor-name")[0]).innerText;
+        var userName = (element.getElementsByClassName("TweetAuthor-screenName")[0]).innerText;
         var imageURL = (element.getElementsByTagName("img")[0]).getAttribute('data-src-2x');
         var profileURL = (element.getElementsByTagName("a")[0]).href;
 
@@ -183,12 +183,12 @@ function tweetServiceFunc($http, $q) {
 
     function loadTweets(id) {
 
+
         var url = baseUrl + id + "?";
 
         return $http.jsonp(url, config)
             .then(function (response) {
                 if (typeof response.data === 'object') {
-
                     return response.data;
                 } else {
                     // invalid response

@@ -19,12 +19,12 @@ function tweetServiceFunc($http, $q) {
 
     function loadTweets(id) {
 
+
         var url = baseUrl + id + "?";
 
         return $http.jsonp(url, config)
             .then(function (response) {
                 if (typeof response.data === 'object') {
-
                     return response.data;
                 } else {
                     // invalid response
